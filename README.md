@@ -10,6 +10,8 @@ at all times, unless going from one lane to another. The car should be able to m
 car is trying to go 50 MPH, it should take a little over 5 minutes to complete 1 loop. Also the car should not experience total 
 acceleration over 10 m/s^2 and jerk that is greater than 10 m/s^3.
 
+![](https://github.com/Luzhongyue/Highway-Path-Planning/blob/master/view.jpg)
+
 ## Data
 
 ### Map
@@ -111,4 +113,25 @@ last path.
 
 
 ## Implementation
+
+### 1.Interpolating waypoints of nearby area
+
+Inside data/highway_map.csv there is a list of waypoints that go all the way around the track. The given map is recorded at approximately 30m intervals, a smooth tractory can't not be obtained directly by using getXY function. However, nearby waypoints are interpolated using spline function which can create coarse waypoints with 0.1m interval. By doing this we can get more smooth trajectory in global (x,y) coordinates when mapping trajectory in Frenet frame into trajectory in global coordinate.
+
+### 2.Determine Ego Car Parameters
+
+The edo car parameters include localization Data (car_x,car_y,car_s,car_d) and control data(car_yaw,car_speed). I have defined some vehicle's state including too close(if a car ahead is too close to next car), way too close(too close to need emergency stop), safe_left(safe to change left), safe_right(safe to change right) and lane change(change to target lane).
+
+### 3.Dect nearby vehicle
+
+The position and velocity information of the nearby vehicles can be obtained from the sensor_fusion. According these data, we can difine the state of ego car, ie, it's too close or safe right and so on,so the car should brake or change lane. What's more, these data also transmit to cost function and calculate the best lane.
+
+### 4.Determine the best lane
+
+The path_planner.h has a fuction called Path_planning, which is used to determine the best lane accortiong to current data about ego vehicle and other nerby vehicle.
+
+### 5.Produce new path
+
+The new path starts with a certain number of points from the previous path, which is received from the simulator at each iteration. From there a spline is generated beginning with the last two points of the previous path that have been kept (or the current position, heading, and velocity if no current path exists), and ending with three points 30,60 and 90 meters ahead and in the target lane. This produces a smooth x and y trajectory. To prevent excessive acceleration and jerk, the velocity is only allowed increment or decrement by a small amount, and the corresponding next x and y points are calculated along the x and y splines created earlier.
+
 
