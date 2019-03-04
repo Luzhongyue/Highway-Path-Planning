@@ -148,7 +148,7 @@ The ego vehicle is possible to drive without collisoin under speed limit and jer
 [Path Planning and Collision Avoidance](http://ais.informatik.uni-freiburg.de/teaching/ss10/robotics/slides/16-pathplanning.pdf)  
 [Safe Motion Planning for Autonomous Driving](http://wesscholar.wesleyan.edu/cgi/viewcontent.cgi?article=1856&context=etd_hon_theses)  
 [Local and Global Path Generation for Autonomous Vehicles Using Splines](http://www.scielo.org.co/pdf/inge/v21n2/v21n2a05.pdf)  
-[Medium- Path Planning in Highways for an Autonomous Vehicle](Local and Global Path Generation for Autonomous Vehicles Using Splines)  
+[Medium- Path Planning in Highways for an Autonomous Vehicle](https://medium.com/@mohankarthik/path-planning-in-highways-for-an-autonomous-vehicle-242b91e6387d)  
 [Real-time motion planning methods for autonomous on-road driving: State-of-the-art and future research directions](http://www.sciencedirect.com/science/article/pii/S0968090X15003447)  
 [Introduction to Robotics #4: Path-Planning](http://correll.cs.colorado.edu/?p=965)  
 [The path planning problem in depth](https://www.cs.cmu.edu/afs/cs/project/jair/pub/volume9/mazer98a-html/node2.html)  
