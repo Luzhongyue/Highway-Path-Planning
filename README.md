@@ -135,3 +135,6 @@ The path_planner.h has a fuction called Path_planning, which is used to determin
 The new path starts with a certain number of points from the previous path, which is received from the simulator at each iteration. From there a spline is generated beginning with the last two points of the previous path that have been kept (or the current position, heading, and velocity if no current path exists), and ending with three points 30,60 and 90 meters ahead and in the target lane. This produces a smooth x and y trajectory. To prevent excessive acceleration and jerk, the velocity is only allowed increment or decrement by a small amount, and the corresponding next x and y points are calculated along the x and y splines created earlier.
 
 
+## Conclusion
+
+The ego vehicle is possible to drive without collisoin under speed limit and jerk even with fairly dense traffic. It can speed up, slow down and change lane accoring to the the path planning fuction.
